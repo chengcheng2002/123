@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>祝福墙 - 王思琪，加油！</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>祝福墙</h1>
+        <p>写下你的祝福，为王思琪加油！</p>
+
+        <form id="blessingForm">
+            <input type="text" id="name" placeholder="你的名字" required>
+            <textarea id="message" placeholder="写下你的祝福..." required></textarea>
+            <button type="submit">提交</button>
+        </form>
+
+        <div id="blessingsList">
+            <div class="blessing"><strong>朋友A:</strong> 王思琪，相信自己！这一路的努力一定不会白费！</div>
+            <div class="blessing"><strong>朋友B:</strong> 努力过就不会后悔，加油！等你的好消息！</div>
+            <div class="blessing"><strong>朋友C:</strong> 别给自己太大压力，放平心态，相信一切会顺利！</div>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('blessingForm');
+        const blessingsList = document.getElementById('blessingsList');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const message = document.getElementById('message').value;
+
+            const blessing = document.createElement('div');
+            blessing.classList.add('blessing');
+            blessing.innerHTML = `<strong>${name}:</strong> ${message}`;
+            blessingsList.appendChild(blessing);
+
+            form.reset();
+        });
+    </script>
+</body>
+</html>
